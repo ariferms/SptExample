@@ -10,7 +10,7 @@ public class Driver {
 
     public void drivers(String browser){
         switch (browser){
-            case "Chromer":
+            case "Chrome":
                 driver = new ChromeDriver();
                 break;
             case "Edge":
@@ -24,5 +24,6 @@ public class Driver {
         }
         driver.manage().window().maximize();
         driver.get("https://open.spotify.com/");
+
     }
 }

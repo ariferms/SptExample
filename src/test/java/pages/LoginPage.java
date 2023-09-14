@@ -22,7 +22,7 @@ public class LoginPage extends Driver {
 
     public void nameEntryTest(Methods method){
         // Username
-        method.WaitUntilTheElementArrives(By.id("login-username"));
+        method.WaitUntilTheElementArrives(By.id(userName));
         Assertions.assertTrue(method.visible(By.id(userName)));
         method.sendKey(By.id(userName),user);
     }

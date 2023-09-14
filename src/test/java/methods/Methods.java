@@ -2,10 +2,14 @@ package methods;
 
 import drivers.Driver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import javax.swing.*;
+import java.awt.*;
 import java.time.Duration;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
@@ -30,6 +34,7 @@ Driver driverSetting;
         try {
             return driverSetting.driver.findElement(by).isEnabled();
         } catch (Exception e){
+            System.out.println(e.getMessage());
             return false;
         }
     }
@@ -46,6 +51,17 @@ Driver driverSetting;
             System.out.println(e.getMessage());
             System.out.println("İstenen değer girilemedi.");
         }
+    }
+
+    public void enterClick(By by){
+        WebElement element = driverSetting.driver.findElement(by);
+        element.sendKeys(Keys.ENTER);
+    }
+
+    public void rigthClick(By by){
+        WebElement elementToRigth = driverSetting.driver.findElement(by);
+        Actions action = new Actions(driverSetting.driver);
+        action.contextClick(elementToRigth).perform();
     }
 
     public void allWindowsExit(){

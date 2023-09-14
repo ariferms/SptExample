@@ -25,7 +25,7 @@ public class TestMain extends Driver {
 
     @Test
     public void testLogin(){
-        System.out.println("Spotify Login Test");
+        System.out.println("* Spotify Login Test");
         init();
 
         // Cookies
@@ -37,6 +37,18 @@ public class TestMain extends Driver {
         loginPage.passwordEntryTest(method);
         loginPage.loginButtonClick(method);
 
+    }
+
+    @Test
+    public void testMylist(){
+        System.out.println("* Spotify My List Test");
+        init();
+
+        testLogin();
+
+        homePage.aramaYapClick(method);
+        homePage.aramaYap(method);
+        homePage.createMyList(method);
     }
 
     @AfterEach
